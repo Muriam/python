@@ -1,0 +1,12 @@
+import random
+massiv = []
+n = 1000
+r = 1000
+
+for i in range(0,r):
+    if n != 0:
+        x1 = random.randint(0,n)
+        massiv.append(x1)
+        n = x1
+    else: break
+print(massiv)
