@@ -1,7 +1,7 @@
 list = [5,2,7,4,0,9,8,6] 
 n = 1 
 
-while n < len(lis):
+while n < len(list):
      for i in range(len(list) - n):
           if list[i] > list[i + 1]:
                list[i],list[i + 1] = list[i + 1],list[i]
