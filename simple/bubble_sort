@@ -1,10 +1,12 @@
-list = [5,2,7,4,0,9,8,6] 
-n = 1 
+from random import random
 
-while n < len(list):
-     for i in range(len(list) - n):
-          if list[i] > list[i + 1]:
-               list[i],list[i + 1] = list[i + 1],list[i]
-     n += 1
-     
-print(list[i])
+lis = [0] * 10
+for i in range(10):
+    lis[i] = int(random() * 100)
+print('original list', lis)
+
+for i in range(9):
+    for j in range(9 - i):
+        if lis[j] > lis[j + 1]:
+            lis[j], lis[j + 1] = lis[j + 1], lis[j]
+print('bubble sort', lis)
