@@ -4,5 +4,9 @@ while i > 100:
     print(i)
     i /= 2
 
-print("cycle for:")
+print("\ncycle for:")
+i = 1000
+for _ in range(4):
+    print(i)
+    i /= 2
 
