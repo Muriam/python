@@ -1,6 +1,14 @@
-from random import random
+from random import randint
 
-lis = [0] * 10
-for i in range(10):
-    lis[i] = int(random() * 100)
-print('original list', lis)
+array = [randint(1, 100) for _ in range(10)]
+
+print('original array')
+print(*array)
+
+for i in range(len(array) - 1):
+    for j in range(i + 1, len(array)):
+        if array[j] < array[i]:
+            array[i], array[j] = array[j], array[i]
+
+print('selection sort')
+print(*array)
