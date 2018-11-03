@@ -20,4 +20,4 @@ while left <= right:
             array[i], array[i - 1] = array[i - 1], array[i]
     left += 1
 
-print(array)
+print(*array)
