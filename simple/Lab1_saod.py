@@ -8,7 +8,7 @@ size = len(arr)
 def bubble_sort(comparison=0, transfer=0):
     for i in range(9):
         for j in range(9 - i):
-            comparison += 1                         # подсчтет сравнений
+            comparison += 1                         # подсчет сравнений
             if arr[j] > arr[j + 1]:
                 arr[j], arr[j + 1] = arr[j + 1], arr[j]
                 transfer += 1                       # подсчет пересылок
@@ -52,6 +52,7 @@ print('transfers: ', transfer)
 comparison2, transfer2 = select_sort()               
 print('\nselection sort\n', *arr)
 print('comparisons: ', comparison2)
+print('transfers: ', transfer2)
 
 #shaker_sort()               
 #print('\nshaker sort\n', *arr) 
