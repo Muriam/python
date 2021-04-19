@@ -1,0 +1,53 @@
+body
+{
+    background-image: url(fon.jpg);
+}
+h1
+{
+    text-align: center;
+    color: CadetBlue;
+    font-weight: bold;
+    margin-top: 90px;
+}
+p
+{
+    font-family: Monotype Corsiva;
+    font-weight: bold;
+    font-size: 22px;
+	color: navy;
+}
+a
+{
+    color: greenyellow;
+}
+div
+{
+    background: lavender;
+    margin: 0 auto;
+    width: 90%;
+}
+
+#nav li
+{
+	float: left;
+	position: relative;
+	list-style: none;
+	background: grey;
+	width: 155px;
+	font-weight: bold;
+}
+#nav ul
+{
+    visibility: hidden; 			/* скрываю выпадающее меню */
+    padding: 0;
+    position: absolute;
+}
+#nav li:hover > ul
+{
+    visibility: visible; 			/* показывается выпадающее меню при наведении */
+    position: absolute; 		/* чтоб при наведении на подпункты меню, не смещалось вниз видео (не двигалось туда сюда) */
+}
+#active a, #nav li:hover > a
+{
+    background: green; 	/* бирюзовый цвет при наведении мыши на пункт меню */
+}
