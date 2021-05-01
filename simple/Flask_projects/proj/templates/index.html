@@ -9,14 +9,10 @@
     <div>
         <p>страна: {{ name }}</p>
 
-        <ul id="nav">
-		    <li><a href="">НАСЕЛЕННЫЕ ПУНКТЫ</a></li>
-		    <li><a href="">ПРИРОДА</a>
-			    <ul>
-                <li><a href="">ФЛОРА</a></li>
-				<li><a href="">ФАУНА</a></li>
-			    </ul>
-            </li>
+        <ul>
+            {% for elem in d %}
+            <li><a href="#">{{ elem }}</a></li>
+            {% endfor %}
         </ul>
 
         <h1>ТАСМАНИЯ</h1>

@@ -19,6 +19,11 @@ p
 a
 {
     color: greenyellow;
+    font-weight: bold;
+    text-decoration: none;  /* удаление подчеркивания текста ссылок */
+    background: grey;       /* добавление фона к пункту меню */
+    border-radius: 40px;    /* добавление скругления */
+    padding: 8px;           /* добавление отступа */
 }
 div
 {
@@ -27,27 +32,16 @@ div
     width: 90%;
 }
 
-#nav li
+ul
 {
-	float: left;
-	position: relative;
-	list-style: none;
-	background: grey;
-	width: 155px;
-	font-weight: bold;
+  list-style: none;         /* удаление маркеров списка */
 }
-#nav ul
+li
 {
-    visibility: hidden; 			/* скрываю выпадающее меню */
-    padding: 0;
-    position: absolute;
+  float: left;              /* размещение списка горизонтально для реализации меню */
+  margin-right: 30px;       /* добавление отступа у пунктов меню */
 }
-#nav li:hover > ul
+a:hover
 {
-    visibility: visible; 			/* показывается выпадающее меню при наведении */
-    position: absolute; 		/* чтоб при наведении на подпункты меню, не смещалось вниз видео (не двигалось туда сюда) */
-}
-#active a, #nav li:hover > a
-{
-    background: green; 	/* бирюзовый цвет при наведении мыши на пункт меню */
+  background: green;        /* добавление эффекта, другой цвет, при наведении */
 }
