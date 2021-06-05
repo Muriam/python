@@ -9,5 +9,10 @@ def func():
     return render_template("index.html", name="Австралия", d=d)
 
 
+@app.route('/two')
+def func_two():
+    return render_template("two.html")
+
+
 if __name__ == '__main__':
     app.run(debug=True)
