@@ -1,7 +1,10 @@
 {% extends "index.html" %}
 
 {% block content %}
-<div id="content">
-    какой-то текст
+<div>
+<form method="post">
+    <input type="text" name="name" id="name" placeholder="введите название">
+    <input type="submit" value="Отправить">
+</form>
 </div>
 {% endblock %}
