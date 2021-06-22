@@ -26,7 +26,7 @@ def func_two():
 
 
 @app.route('/fauna', methods=['POST', 'GET'])
-def func_three():
+def data_base():
     if request.method == 'POST':
         name = request.form['name']
 
@@ -39,7 +39,7 @@ def func_three():
         except:
             return "не получилось добавить запись"
     else:
-        return render_template("fauna.html")
+        return render_template("fauna.html", insects=Insects.query.all())
 
 
 if __name__ == '__main__':
