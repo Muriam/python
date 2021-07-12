@@ -2,19 +2,17 @@
 
 {% block content %}
 <div>
-<form method="post">
-    <input type="text" name="name" id="name" placeholder="введите название">
-    <input type="submit" value="Отправить">
-</form>
     <table>
         <tr>
-            <th>Ракообразные</th>
+            <th>Насекомые</th>
         </tr>
-        {% for insect in insects %}
+        {% for elem in data %}
         <tr>
-            <td>{{ insect.name }}</td>
+            <td>{{ elem.name }}</td>
         </tr>
         {% endfor %}
     </table>
 </div>
 {% endblock %}
+
+

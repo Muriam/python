@@ -1,18 +1,25 @@
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for
 from flask_sqlalchemy import SQLAlchemy
 
+
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dataBase.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db3.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
-class Insects(db.Model):
+class Kinds(db.Model):
+    __tablename__ = 'kinds'
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(40), nullable=False)
+    name = db.Column(db.String(30))
+    dragon = db.relationship('Dragonflies', backref='family')
 
-    def __repr__(self):
-        return '<Insects %r>' % self.id
+
+class Dragonflies(db.Model):
+    __tablename__ = 'dragonflies'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(30))
+    family_id = db.Column(db.Integer, db.ForeignKey('kinds.id'))
 
 
 @app.route('/')
@@ -25,21 +32,10 @@ def func_two():
     return render_template("two.html")
 
 
-@app.route('/fauna', methods=['POST', 'GET'])
+@app.route('/fauna')
 def data_base():
-    if request.method == 'POST':
-        name = request.form['name']
-
-        insects = Insects(name=name)
-
-        try:
-            db.session.add(insects)
-            db.session.commit()
-            return redirect('/fauna')
-        except:
-            return "не получилось добавить запись"
-    else:
-        return render_template("fauna.html", insects=Insects.query.all())
+    data = Dragonflies.query.all()
+    return render_template("fauna.html", data=data)
 
 
 if __name__ == '__main__':
