@@ -34,7 +34,7 @@ def func_two():
 
 @app.route('/fauna')
 def data_base():
-    data = Dragonflies.query.all()
+    data = Dragonflies.query.filter(Dragonflies.family_id.like(2))
     return render_template("fauna.html", data=data)
 
 
