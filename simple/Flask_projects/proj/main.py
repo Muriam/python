@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 from flask_sqlalchemy import SQLAlchemy
 
 
@@ -72,10 +72,12 @@ def func_two():
     return render_template("two.html")
 
 
-@app.route('/flora')
+@app.route('/flora', methods=['GET', 'POST'])
 def data_base():
-    data = Plants.query.filter(Plants.f_id.like(1))
-    return render_template("flora.html", data=data)
+    if request.method == 'POST':
+        data = Plants.query.filter(Plants.f_id.like(1))
+        return render_template("flora.html", data=data)
+    return render_template("flora.html")
 
 
 if __name__ == '__main__':

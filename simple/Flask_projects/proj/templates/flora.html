@@ -2,16 +2,17 @@
 
 {% block content %}
 <div>
-    <table>
-        <tr>
-            <th>Растения</th>
-        </tr>
+    <form action="/flora" method="POST">
+        <input type="submit">
         {% for elem in data %}
+        <table>
         <tr>
             <td>{{ elem.name }}</td>
         </tr>
+        </table>
         {% endfor %}
-    </table>
+    </form>
+
 </div>
 {% endblock %}
 
