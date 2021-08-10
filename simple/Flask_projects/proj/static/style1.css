@@ -50,3 +50,23 @@ a:hover
 {
   background: green;        /* добавление эффекта, другой цвет, при наведении */
 }
+
+
+.items
+{
+  display: flex;
+  text-align: left;
+  width: 96%;
+  height: 2800px;
+  margin: auto;
+}
+.item
+{
+  width: 17%;
+  border: 1px solid black;
+  padding-top: 2%;
+}
+th
+{
+    color: brown;
+}

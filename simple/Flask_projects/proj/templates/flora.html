@@ -1,19 +1,707 @@
 {% extends "index.html" %}
 
 {% block content %}
-<div>
-    <form action="/flora" method="POST">
-        <input type="submit">
-        {% for elem in data %}
+
+<div class="items">
+
+    <div class="item">
         <table>
-        <tr>
-            <td>{{ elem.name }}</td>
-        </tr>
+            <tr>
+                <th>Растения:</th>
+            </tr>
+            {% for elem in column1 %}
+            <tr>
+                <td><b>{{ elem.name }}</b></td>
+            </tr>
+            {% endfor %}
         </table>
-        {% endfor %}
-    </form>
+    </div>
+
+    <div class="item">
+            <tr>
+                <th>Роды растений соответственно:</th>
+            </tr>
+        <div style="font-family: comic sans ms">
+        <table>
+            {% for elem in column2 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        </div>
+    </div>
+
+    <div class="item">
+        <table>
+            <tr>
+                <th>Семейство Сосновые:</th>
+            </tr>
+            {% for elem in family_1 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Берёзовые:</th>
+            </tr>
+            {% for elem in family_2 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Ивовые:</th>
+            </tr>
+            {% for elem in family_3 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Розовые:</th>
+            </tr>
+            {% for elem in family_4 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Адоксовые:</th>
+            </tr>
+            {% for elem in family_5 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Жимолостные:</th>
+            </tr>
+            {% for elem in family_6 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Волчниковые:</th>
+            </tr>
+            {% for elem in family_7 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Крыжовниковые:</th>
+            </tr>
+            {% for elem in family_8 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Кипрейные:</th>
+            </tr>
+            {% for elem in family_9 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Мареновые:</th>
+            </tr>
+            {% for elem in family_10 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Кисличные:</th>
+            </tr>
+            {% for elem in family_11 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Лютиковые:</th>
+            </tr>
+            {% for elem in family_12 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Астровые:</th>
+            </tr>
+            {% for elem in family_13 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Зонтичные:</th>
+            </tr>
+            {% for elem in family_14 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Капустные:</th>
+            </tr>
+            {% for elem in family_15 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Подорожниковые:</th>
+            </tr>
+            {% for elem in family_16 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Бобовые:</th>
+            </tr>
+            {% for elem in family_17 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Пионовые:</th>
+            </tr>
+            {% for elem in family_18 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Вахтовые:</th>
+            </tr>
+            {% for elem in family_19 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Горечавковые:</th>
+            </tr>
+            {% for elem in family_20 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Осоковые:</th>
+            </tr>
+            {% for elem in family_21 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Вересковые:</th>
+            </tr>
+            {% for elem in family_22 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Фиалковые:</th>
+            </tr>
+            {% for elem in family_23 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Лилейные:</th>
+            </tr>
+            {% for elem in family_24 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Маковые:</th>
+            </tr>
+            {% for elem in family_25 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Первоцветные:</th>
+            </tr>
+            {% for elem in family_26 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Орхидные:</th>
+            </tr>
+            {% for elem in family_27 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Оноклеевые:</th>
+            </tr>
+            {% for elem in family_28 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Щитовниковые:</th>
+            </tr>
+            {% for elem in family_29 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Кочедыжниковые:</th>
+            </tr>
+            {% for elem in family_30 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Семейство Злаки:</th>
+            </tr>
+            {% for elem in family_31 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="item">
+        <table>
+            <tr>
+                <th>Порядок Сосновые:</th>
+            </tr>
+            {% for elem in order_1 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Порядок Букоцветные:</th>
+            </tr>
+            {% for elem in order_2 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Порядок Мальпигиецветные:</th>
+            </tr>
+            {% for elem in order_3 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Порядок Розоцветные:</th>
+            </tr>
+            {% for elem in order_4 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Порядок Ворсянкоцветные:</th>
+            </tr>
+            {% for elem in order_5 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Порядок Мальвоцветные:</th>
+            </tr>
+            {% for elem in order_6 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Порядок Камнеломкоцветные:</th>
+            </tr>
+            {% for elem in order_7 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Порядок Миртоцветные:</th>
+            </tr>
+            {% for elem in order_8 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Порядок Горечавкоцветные:</th>
+            </tr>
+            {% for elem in order_9 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Порядок Кисличноцветные:</th>
+            </tr>
+            {% for elem in order_10 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Порядок Лютикоцветные:</th>
+            </tr>
+            {% for elem in order_11 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Порядок Астроцветные:</th>
+            </tr>
+            {% for elem in order_12 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Порядок Зонтикоцветные:</th>
+            </tr>
+            {% for elem in order_13 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Порядок Капустоцветные:</th>
+            </tr>
+            {% for elem in order_14 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Порядок Ясноткоцветные:</th>
+            </tr>
+            {% for elem in order_15 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Порядок Бобовоцветные:</th>
+            </tr>
+            {% for elem in order_16 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Порядок Злакоцветные:</th>
+            </tr>
+            {% for elem in order_17 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Порядок Верескоцветные:</th>
+            </tr>
+            {% for elem in order_18 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Порядок Лилиецветные:</th>
+            </tr>
+            {% for elem in order_19 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Порядок Спаржецветные:</th>
+            </tr>
+            {% for elem in order_20 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Порядок Многоножковые:</th>
+            </tr>
+            {% for elem in order_21 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="item">
+        <table>
+            <tr>
+                <th>Класс Хвойные:</th>
+            </tr>
+            {% for elem in class_1 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Класс Двудольные:</th>
+            </tr>
+            {% for elem in class_2 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Класс Однодольные:</th>
+            </tr>
+            {% for elem in class_3 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Класс Папоротниковые:</th>
+            </tr>
+            {% for elem in class_4 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="item">
+        <table>
+            <tr>
+                <th>Отдел Хвойные:</th>
+            </tr>
+            {% for elem in division_1 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Отдел Цветковые:</th>
+            </tr>
+            {% for elem in division_2 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Отдел Покрытосеменные:</th>
+            </tr>
+            {% for elem in division_3 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+        <table>
+            <tr>
+                <th>Отдел Папоротниковидные:</th>
+            </tr>
+            {% for elem in division_4 %}
+            <tr>
+                <td>{{ elem.name }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 
 </div>
+
 {% endblock %}
 
 
