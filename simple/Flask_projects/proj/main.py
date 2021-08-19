@@ -5,6 +5,9 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///flora.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_BINDS'] = {
+    'fauna': 'sqlite:///fauna.db'
+}
 db = SQLAlchemy(app)
 
 
@@ -151,6 +154,61 @@ def flora():
                            order_18=order_18, order_19=order_19, order_20=order_20, order_21=order_21,
                            class_1=class_1, class_2=class_2, class_3=class_3, class_4=class_4, division_1=division_1,
                            division_2=division_2, division_3=division_3, division_4=division_4)
+
+
+class Kingdom2(db.Model):
+    __tablename__ = 'kingdom2'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(40))
+    with_plants = db.relationship('Species2', backref='k')
+
+
+class Phylum2(db.Model):
+    __tablename__ = 'phylum2'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(40))
+    with_plants = db.relationship('Species2', backref='d')
+
+
+class Class2(db.Model):
+    __tablename__ = 'class2'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(40))
+    with_plants = db.relationship('Species2', backref='c')
+
+
+class Order2(db.Model):
+    __tablename__ = 'order2'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(40))
+    with_plants = db.relationship('Species2', backref='o')
+
+
+class Family2(db.Model):
+    __tablename__ = 'family2'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(40))
+    with_plants = db.relationship('Species2', backref='f')
+
+
+class Genus2(db.Model):
+    __tablename__ = 'genus2'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(40))
+    with_plants = db.relationship('Species2', backref='g')
+
+
+class Species2(db.Model):
+    __tablename__ = 'species2'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(40))
+    genus2_id = db.Column(db.Integer, db.ForeignKey('genus2.id'))
+    family2_id = db.Column(db.Integer, db.ForeignKey('family2.id'))
+    order2_id = db.Column(db.Integer, db.ForeignKey('order2.id'))
+    class2_id = db.Column(db.Integer, db.ForeignKey('class2.id'))
+    phylum2_id = db.Column(db.Integer, db.ForeignKey('phylum2.id'))
+    kingdom2_id = db.Column(db.Integer, db.ForeignKey('kingdom2.id'))
+    info = {'bind_key': 'genus2'}
 
 
 if __name__ == '__main__':
