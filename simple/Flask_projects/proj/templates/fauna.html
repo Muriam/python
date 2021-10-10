@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div id="content">
+    <table>
+        <tr>
+            <th>Виды животных</th>
+        </tr>
+        {% for elem in data2 %}
+        <tr>
+            <td>{{ elem.name }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}
