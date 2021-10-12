@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from sqlalchemy import create_engine
 
 
 app = Flask(__name__)
@@ -8,6 +9,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
+engine = create_engine("sqlite:///db.db")
 
 
 class Kingdom(db.Model):
@@ -76,9 +78,8 @@ def func_two():
 
 @app.route('/flora')
 def flora():
-    data = Species.query.all()
-    query = db.engine.execute("<SELECT * FROM Family>")
-    return render_template("flora.html", data=data, query=query)
+    query = db.engine.execute('SELECT * FROM Species WHERE kingdom_id=1')
+    return render_template("flora.html", query=query)
 
 
 @app.route('/fauna')
@@ -86,6 +87,18 @@ def fauna():
     data2 = Species.query.filter(Species.kingdom_id.like(2))
     return render_template("fauna.html", data2=data2)
 
+
+'''
+kinds = {'flora': 1, 'fauna': 2}
+
+def get_kingdom_id(kingdom):
+    if kingdom == 'flora':
+        return 1
+    elif kingdom == 'fauna':
+        return 2
+    else:
+        print('введите корректные данные')
+'''
 
 if __name__ == '__main__':
     app.run(debug=True)

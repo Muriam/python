@@ -4,16 +4,13 @@
 <div id="content">
     <table>
         <tr>
-            <th>Все виды: и растений, и животных</th>
+            <th>Виды растений</th>
         </tr>
-        {% for elem in data %}
+        {% for elem in query %}
         <tr>
             <td>{{ elem.name }}</td>
         </tr>
         {% endfor %}
-        <tr>
-            {{ query }}
-        </tr>
     </table>
 </div>
 {% endblock %}
