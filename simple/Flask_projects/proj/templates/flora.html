@@ -2,16 +2,24 @@
 
 {% block content %}
 <div id="content">
-    <table>
-        <tr>
-            <th>Виды растений</th>
-        </tr>
+
+    <form action="" method="POST">
+        <!-- Секретный ключ -->
+        {{ form.hidden_tag() }}
+
+        <!-- Форма -->
+        {{ form.queryUser }}
+        <br>
+        {{ form.button }}
+    </form>
+
+    <ul style="color: orange;">
+
         {% for elem in query %}
-        <tr>
-            <td>{{ elem.name }}</td>
-        </tr>
+        <li> {{ elem.name }} </li>
         {% endfor %}
-    </table>
+    </ul>
+
 </div>
 {% endblock %}
 

@@ -2,6 +2,9 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from sqlalchemy import create_engine
+from wtforms import StringField, SubmitField
+from flask_wtf import FlaskForm
+import os
 
 
 app = Flask(__name__)
@@ -10,6 +13,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 engine = create_engine("sqlite:///db.db")
+SECRET_KEY = os.urandom(32)
+app.config['SECRET_KEY'] = SECRET_KEY
 
 
 class Kingdom(db.Model):
@@ -68,7 +73,7 @@ class Species(db.Model):
 
 @app.route('/')
 def func():
-    return render_template("index.html", name="Россия")
+    return render_template("index.html", name='Россия')
 
 
 @app.route('/two')
@@ -76,29 +81,31 @@ def func_two():
     return render_template("two.html")
 
 
-@app.route('/flora')
+class TestForm(FlaskForm):
+    queryUser = StringField('enter your query')
+    button = SubmitField('send')
+
+
+@app.route('/flora', methods=['GET', 'POST'])
 def flora():
-    query = db.engine.execute('SELECT * FROM Species WHERE kingdom_id=1')
-    return render_template("flora.html", query=query)
+    form = TestForm()
+    if form.validate_on_submit():
+        query_from_form = form.queryUser.data
+        kingdom = ['растения', 'животные']
+        if query_from_form in kingdom[0]:
+            query = db.engine.execute('SELECT * FROM Species WHERE kingdom_id=1')
+            return render_template('flora.html', query=query, form=form)
+        elif query_from_form == kingdom[1]:
+            query = db.engine.execute('SELECT * FROM Species WHERE kingdom_id=2')
+            return render_template('flora.html', query=query, form=form)
+    return render_template('flora.html', form=form)
 
 
 @app.route('/fauna')
 def fauna():
-    data2 = Species.query.filter(Species.kingdom_id.like(2))
-    return render_template("fauna.html", data2=data2)
+    data = Species.query.filter(Species.kingdom_id.like(2))
+    return render_template("fauna.html", data=data)
 
-
-'''
-kinds = {'flora': 1, 'fauna': 2}
-
-def get_kingdom_id(kingdom):
-    if kingdom == 'flora':
-        return 1
-    elif kingdom == 'fauna':
-        return 2
-    else:
-        print('введите корректные данные')
-'''
 
 if __name__ == '__main__':
     app.run(debug=True)
