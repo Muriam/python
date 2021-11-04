@@ -4,22 +4,18 @@
 <div id="content">
 
     <form action="" method="POST">
-        <!-- Секретный ключ -->
         {{ form.hidden_tag() }}
-
-        <!-- Форма -->
-        {{ form.queryUser }}
+        <br>
+        {{ form.kingdom.label }}  {{ form.kingdom() }}
         <br>
         {{ form.button }}
     </form>
 
     <ul style="color: orange;">
-
-        {% for elem in query %}
-        <li> {{ elem.name }} </li>
+        {% for id, name, genus_id, family_id, order_id, class_id, divisionOrPhylum_id, kingdom_id in species %}
+            <li> {{ name }} </li>
         {% endfor %}
     </ul>
 
 </div>
 {% endblock %}
-

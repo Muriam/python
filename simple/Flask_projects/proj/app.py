@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from sqlalchemy import create_engine
-from wtforms import StringField, SubmitField
+from wtforms import RadioField, SubmitField
 from flask_wtf import FlaskForm
 import os
 
@@ -81,24 +81,21 @@ def func_two():
     return render_template("two.html")
 
 
-class TestForm(FlaskForm):
-    queryUser = StringField('enter your query')
-    button = SubmitField('send')
+KINGDOMS = {1: 'флора', 2: 'фауна'}
 
 
-@app.route('/flora', methods=['GET', 'POST'])
-def flora():
-    form = TestForm()
+class SpeciesForm(FlaskForm):
+     kingdom = RadioField('Выберите растения или животных', coerce=int, choices=KINGDOMS.items())
+     button = SubmitField("send")
+
+
+@app.route('/species', methods=['GET', 'POST'])
+def species():
+    form = SpeciesForm()
     if form.validate_on_submit():
-        query_from_form = form.queryUser.data
-        kingdom = ['растения', 'животные']
-        if query_from_form in kingdom[0]:
-            query = db.engine.execute('SELECT * FROM Species WHERE kingdom_id=1')
-            return render_template('flora.html', query=query, form=form)
-        elif query_from_form == kingdom[1]:
-            query = db.engine.execute('SELECT * FROM Species WHERE kingdom_id=2')
-            return render_template('flora.html', query=query, form=form)
-    return render_template('flora.html', form=form)
+        species = list(db.engine.execute('SELECT * FROM Species WHERE kingdom_id=:kingdom_id',{'kingdom_id': form.kingdom.data}))
+        return render_template('species.html', species=species, form=form)
+    return render_template('species.html', form=form)
 
 
 @app.route('/fauna')
