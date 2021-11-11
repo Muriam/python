@@ -3,19 +3,45 @@
 {% block content %}
 <div id="content">
 
-    <form action="" method="POST">
-        {{ form.hidden_tag() }}
-        <br>
-        {{ form.kingdom.label }}  {{ form.kingdom() }}
-        <br>
-        {{ form.button }}
-    </form>
+<form action="" method="POST">
 
-    <ul style="color: orange;">
-        {% for id, name, genus_id, family_id, order_id, class_id, divisionOrPhylum_id, kingdom_id in species %}
-            <li> {{ name }} </li>
+    {{ form.hidden_tag() }}
+
+<div class="items">
+
+    <div class="item">
+        {{ form.kingdom.label }}  {{ form.kingdom() }}
+        <br><br>
+        {{ form.button }}
+        <br>
+        <b>
+            {% for id, name, genus_id, family_id, order_id, class_id, divisionOrPhylum_id, kingdom_id in species %}
+                {{ name }} <br>
+            {% endfor %}
+        </b>
+    </div>
+
+    <div class="item">
+        <i>Таксоны</i>
+        <br><br>
+        {% for species in species_search %}
+            <b> {{  species.name  }} </b> -> {{ species.genus.name }} -> {{ species.family.name }} <br>
         {% endfor %}
-    </ul>
+    </div>
+
+    <div class="item">
+        <i>Поиск</i>
+        <br><br>
+        {{ form.find.label }}  {{ form.find() }}
+        <br><br>
+        {{ form.findButton }}
+    <br>
+
+
+</div>
+</form>
+
 
 </div>
 {% endblock %}
+

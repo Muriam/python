@@ -2,7 +2,7 @@ from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from sqlalchemy import create_engine
-from wtforms import RadioField, SubmitField
+from wtforms import SubmitField, RadioField, StringField
 from flask_wtf import FlaskForm
 import os
 
@@ -12,7 +12,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-engine = create_engine("sqlite:///db.db")
+engine = create_engine('sqlite:///db.db')
 SECRET_KEY = os.urandom(32)
 app.config['SECRET_KEY'] = SECRET_KEY
 
@@ -73,35 +73,38 @@ class Species(db.Model):
 
 @app.route('/')
 def func():
-    return render_template("index.html", name='Россия')
+    return render_template('index.html')
 
 
 @app.route('/two')
 def func_two():
-    return render_template("two.html")
+    return render_template('two.html')
 
 
 KINGDOMS = {1: 'флора', 2: 'фауна'}
 
 
 class SpeciesForm(FlaskForm):
-     kingdom = RadioField('Выберите растения или животных', coerce=int, choices=KINGDOMS.items())
-     button = SubmitField("send")
+    kingdom = RadioField('Выберите растения или животных', coerce=int, choices=KINGDOMS.items())
+    button = SubmitField('фильтр')
+    find = StringField('название')
+    findButton = SubmitField('найти')
 
 
 @app.route('/species', methods=['GET', 'POST'])
 def species():
     form = SpeciesForm()
     if form.validate_on_submit():
-        species = list(db.engine.execute('SELECT * FROM Species WHERE kingdom_id=:kingdom_id',{'kingdom_id': form.kingdom.data}))
-        return render_template('species.html', species=species, form=form)
+        species = list(db.engine.execute('SELECT * FROM Species WHERE kingdom_id=:kingdom_id', {'kingdom_id': form.kingdom.data}))
+        species_search = Species.query.filter(Species.name.like(f'%{form.find.data}%')).all()
+        return render_template('species.html', species=species, form=form, species_search=species_search)
     return render_template('species.html', form=form)
 
 
 @app.route('/fauna')
 def fauna():
-    data = Species.query.filter(Species.kingdom_id.like(2))
-    return render_template("fauna.html", data=data)
+    data2 = Species.query.filter_by(id=2).all()
+    return render_template('fauna.html', data2=data2)
 
 
 if __name__ == '__main__':
