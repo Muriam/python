@@ -5,6 +5,7 @@ from sqlalchemy import create_engine
 from wtforms import SubmitField, RadioField, StringField
 from flask_wtf import FlaskForm
 import os
+from wtforms.validators import DataRequired
 
 
 app = Flask(__name__)
@@ -87,18 +88,25 @@ KINGDOMS = {1: 'флора', 2: 'фауна'}
 class SpeciesForm(FlaskForm):
     kingdom = RadioField('Выберите растения или животных', coerce=int, choices=KINGDOMS.items())
     button = SubmitField('фильтр')
-    find = StringField('название')
+
+
+class SearchForm(FlaskForm):
+    find = StringField('название', validators=[DataRequired(message='Обязательное поле')])
     findButton = SubmitField('найти')
 
 
 @app.route('/species', methods=['GET', 'POST'])
 def species():
-    form = SpeciesForm()
-    if form.validate_on_submit():
-        species = list(db.engine.execute('SELECT * FROM Species WHERE kingdom_id=:kingdom_id', {'kingdom_id': form.kingdom.data}))
-        species_search = Species.query.filter(Species.name.like(f'%{form.find.data}%')).all()
-        return render_template('species.html', species=species, form=form, species_search=species_search)
-    return render_template('species.html', form=form)
+    form1 = SpeciesForm()
+    form2 = SearchForm()
+    if form1.validate_on_submit():
+        print(form1.kingdom.data)
+        species = list(db.engine.execute('SELECT * FROM Species WHERE kingdom_id=:kingdom_id', {'kingdom_id': form1.kingdom.data}))
+        return render_template('species.html', species=species, form1=form1, form2=form2)
+    if form2.validate_on_submit():
+        search = Species.query.filter(Species.name.like(f'%{form2.find.data}%')).all()
+        return render_template('species.html', search=search, form1=form1, form2=form2)
+    return render_template('species.html', form1=form1, form2=form2)
 
 
 @app.route('/fauna')
