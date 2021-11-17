@@ -5,7 +5,7 @@ from sqlalchemy import create_engine
 from wtforms import SubmitField, RadioField, StringField
 from flask_wtf import FlaskForm
 import os
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Optional
 
 
 app = Flask(__name__)
@@ -86,12 +86,14 @@ KINGDOMS = {1: 'флора', 2: 'фауна'}
 
 
 class SpeciesForm(FlaskForm):
+    find = StringField(validators=[Optional(strip_whitespace=True)], default='')
     kingdom = RadioField('Выберите растения или животных', coerce=int, choices=KINGDOMS.items())
     button = SubmitField('фильтр')
 
 
 class SearchForm(FlaskForm):
-    find = StringField('название', validators=[DataRequired(message='Обязательное поле')])
+    kingdom = StringField(validators=[Optional(strip_whitespace=True)])
+    find = StringField('название', validators=[DataRequired(message='Обязательное поле')], default='')
     findButton = SubmitField('найти')
 
 
@@ -99,20 +101,14 @@ class SearchForm(FlaskForm):
 def species():
     form1 = SpeciesForm()
     form2 = SearchForm()
-    if form1.validate_on_submit():
-        print(form1.kingdom.data)
-        species = list(db.engine.execute('SELECT * FROM Species WHERE kingdom_id=:kingdom_id', {'kingdom_id': form1.kingdom.data}))
-        return render_template('species.html', species=species, form1=form1, form2=form2)
     if form2.validate_on_submit():
         search = Species.query.filter(Species.name.like(f'%{form2.find.data}%')).all()
-        return render_template('species.html', search=search, form1=form1, form2=form2)
+        species_result = Species.query.filter_by(kingdom_id=form1.kingdom.data).all()
+        return render_template('species.html', search=search, species_result=species_result, form1=form1, form2=form2)
+    if form1.validate_on_submit():
+        species_result = Species.query.filter_by(kingdom_id=form1.kingdom.data).all()
+        return render_template('species.html', species_result=species_result, form1=form1, form2=form2)
     return render_template('species.html', form1=form1, form2=form2)
-
-
-@app.route('/fauna')
-def fauna():
-    data2 = Species.query.filter_by(id=2).all()
-    return render_template('fauna.html', data2=data2)
 
 
 if __name__ == '__main__':
