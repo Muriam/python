@@ -77,11 +77,6 @@ def func():
     return render_template('index.html')
 
 
-@app.route('/two')
-def func_two():
-    return render_template('two.html')
-
-
 KINGDOMS = {1: 'флора', 2: 'фауна'}
 
 

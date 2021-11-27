@@ -8,7 +8,7 @@
         <form action="" method="POST">
             {{ form1.hidden_tag() }}
 
-                <div class="item" style="width: 400px">
+                <div class="item">
                     {{ form1.kingdom.label }}  {{ form1.kingdom() }}
                     <br><br>
                     {{ form1.button }}
@@ -26,7 +26,7 @@
         <form action="" method="POST">
             {{ form2.hidden_tag() }}
 
-                <div class="item" style="width: 400px">
+                <div class="item">
                     <i>Введите вид растения или животного</i>
                     <br><br>
                     {{ form2.find.label }}  {{ form2.find() }}
@@ -34,9 +34,10 @@
                     {{ form2.findButton }}
                     <br><br>
                     {% for species in search %}
-                        <b> {{ species.name }} </b> -> {{ species.genus.name }} -> {{ species.family.name }} ->
-                        {{ species.order.name }} -> {{ species.class.name }} -> {{ species.divisionOrPhylum.name }} ->
-                        {{ species.kingdom.name }} <br>
+                        <i>вид</i> <b>{{ species.name }}</b> <br> <i>род</i> {{ species.genus.name }} <br>
+                        <i>семейство</i> {{ species.family.name }} <br> <i>порядок/отряд</i> {{ species.order.name }}
+                        <br> <i>класс</i> {{ species.class.name }} <br> <i>отдел/тип</i>
+                        {{ species.divisionOrPhylum.name }} <br> <i>царство</i> {{ species.kingdom.name }}
                     {% endfor %}
                 </div>
 
@@ -48,4 +49,3 @@
 
 </div>
 {% endblock %}
-
