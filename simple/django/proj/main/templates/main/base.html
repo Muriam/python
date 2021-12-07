@@ -2,18 +2,18 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-    <title>Базовый шаблон</title>
     {% load static %}
     <link type="text/css" rel="stylesheet" href="{% static 'main/styles.css' %}" />
+    {% block title %}{% endblock %}
 </head>
 <body>
-	<a href="/">Главная</a>
-    <a href="/eng_1">Грамматика</a>
-    <a href="/eng_2">Словарь</a>
-    <a href="/library">Книги</a>
-    <a href="/framework_1">flask</a>
-    <a href="/framework_2">django</a>
+    <b>
+    <a href="{% url 'home' %}">Главная</a> | <a href="{% url 'books' %}">Книги</a> |
+    <a href="{% url 'grammar' %}">Грамматика</a> | <a href="{% url 'dictionary' %}">Словарь</a> |
+    <a href="{% url 'flask' %}">Flask</a> | <a href="{% url 'django' %}">Django</a>
+    </b>
     <hr>
+
 	{% block content %}{% endblock %}
 </body>
 </html>

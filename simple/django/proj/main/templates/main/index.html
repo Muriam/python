@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="ru">
 {% extends "main/base.html" %}
-<head>
-    <meta charset="UTF-8">
-    <title>Через тернии к коду</title>
-</head>
 
-<body>
+	{% block title %}<title>Через тернии к коду</title>{% endblock %}
+
     {% block content %}
 	<div id="content">
-	<pre>
+	<pre style="color: darkgreen;">
 		Nginx - это веб-сервер. Он является следующим:
 		-HTTP-сервер
 		-обратный прокси-сервер
@@ -24,6 +19,4 @@
 	</pre>
 	</div>
     {% endblock %}
-</body>
 
-</html>

@@ -5,6 +5,16 @@ pre
 
 #content
 {
-    background: lightskyblue;
+    background: powderblue;
+}
+
+body
+{
+    background-image: url(fractal.jpg);
+}
+
+a
+{
+    color: yellow;
 }
 

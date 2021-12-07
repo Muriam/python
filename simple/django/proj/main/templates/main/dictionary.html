@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>словарь технических английских слов</title>
-</head>
-<body>
-    <p>здесь будет список самых частых английских слов для программиста</p>
-</body>
-</html>
+{% extends "main/base.html" %}
+
+    {% block title %}<title>словарь технических английских слов</title>{% endblock %}
+
+    {% block content %}
+    <div id="content">
+        <p>здесь будет список самых частых английских слов для программиста</p>
+    </div>
+    {% endblock %}
