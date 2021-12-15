@@ -1,5 +1,6 @@
 from django.shortcuts import render       # для шаблонов
 # from django.http import HttpResponse      #  для request, HttpResponse чтоб получать ответ
+from .models import Dictionary
 
 
 def posts(request):
@@ -11,7 +12,8 @@ def grammar(request):
 
 
 def dictionary(request):
-    return render(request, 'main/dictionary.html')
+    words = Dictionary.objects.all()
+    return render(request, 'main/dictionary.html', {"words": words})
 
 
 def books(request):
