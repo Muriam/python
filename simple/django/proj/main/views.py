@@ -12,7 +12,7 @@ def grammar(request):
 
 
 def dictionary(request):
-    words = Dictionary.objects.all()
+    words = Dictionary.objects.all().order_by('word')
     return render(request, 'main/dictionary.html', {"words": words})
 
 

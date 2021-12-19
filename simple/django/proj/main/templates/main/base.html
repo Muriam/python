@@ -7,11 +7,9 @@
     {% block title %}{% endblock %}
 </head>
 <body>
-    <b>
     <a href="{% url 'home' %}">Главная</a> | <a href="{% url 'books' %}">Книги</a> |
     <a href="{% url 'grammar' %}">Грамматика</a> | <a href="{% url 'dictionary' %}">Словарь</a> |
     <a href="{% url 'flask' %}">Flask</a> | <a href="{% url 'django' %}">Django</a>
-    </b>
     <hr>
 
 	{% block content %}{% endblock %}

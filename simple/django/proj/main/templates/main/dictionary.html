@@ -4,6 +4,14 @@
 
     {% block content %}
     <div id="content">
-        <p>здесь будет список самых частых английских слов для программиста</p>
+    <div class="items">
+
+        <div class="item">
+            {% for w in words %}
+               <b>  {{ w.word }} </b> -  {{ w.translation }} <br>
+            {% endfor %}
+        </div>
+
+    </div>
     </div>
     {% endblock %}
