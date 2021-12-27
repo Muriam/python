@@ -6,9 +6,12 @@
 	<div id="content">
 
 	<script>
-        time();
+       time();
     </script>
 
+
+	<div class="title"><b>Кликните, чтоб узнать про Nginx</b></div>
+    <div class="textPost">
 	<pre><b>
 	Nginx - это веб-сервер. Он является следующим:
 	-HTTP-сервер
@@ -22,9 +25,11 @@
 	-Отдает статический контент.
 	-Проксирование запросов.
 	</b></pre>
+	</div>
 
-	<h3 id="posts" style="color: deeppink">Кликните, чтоб узнать про Gunicorn</h3>
-	<pre style="display: none"><b>
+	<div class="title"><b>Кликните, чтоб узнать про Gunicorn</b></div>
+    <div class="textPost">
+	<pre><b>
 	Gunicorn – это application-сервер. Также его иногда называют WSGI-сервер. Используется в Unix-системах.
 	WSGI является протоколом, был разработан как интерфейс связывающий web-сервер с web-приложением на python.
 	WSGI-сервер позволяет обрабатывать множество запросов одновременно. Ускоряет разработку веб-приложений написанных
@@ -40,14 +45,20 @@
 	-Расширяется с помощью специальных точек входа.
 	-Поддерживает Python 2.6+ и 3.x.
 	</b></pre>
+	</div>
 
 	<script>
-    let h3 = document.getElementById('posts');
-	h3.onclick = function()
+	const titles = document.querySelectorAll(".title")
+	const textPosts = document.querySelectorAll(".textPost")
+
+	for (let i=0; i<titles.length; i++)
 	{
-    	this.nextElementSibling.style.display = this.nextElementSibling.style.display == 'none' ? 'block' : 'none';
+  	titles[i].addEventListener('click', () =>
+      {
+        textPosts[i].classList.toggle('show')
+      })
 	}
-    </script>
+	</script>
 
 	</div>
     {% endblock %}

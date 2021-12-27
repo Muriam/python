@@ -30,5 +30,21 @@ b
 {
     width: 300px;
     border: 3px solid deepskyblue;
+}
 
+
+.title
+{
+  margin: 20px 0;
+  padding: 20px;
+  cursor: pointer;
+  color: deeppink;
+}
+.textPost
+{
+  display: none;
+}
+.show
+{
+  display: block;
 }
