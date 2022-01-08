@@ -7,8 +7,13 @@
     <div class="items">
 
         <div class="item">
-            {% for w in words %}
+            {% for w in words1 %}
                <b>  {{ w.word }} </b> -  {{ w.translation }} <br>
+            {% endfor %}
+        </div>
+       <div class="item">
+           {% for w2 in words2 %}
+               <b>  {{ w2.word }} </b> -  {{ w2.translation }} <br>
             {% endfor %}
         </div>
 

@@ -12,8 +12,9 @@ def grammar(request):
 
 
 def dictionary(request):
-    words = Dictionary.objects.all().order_by('word')
-    return render(request, 'main/dictionary.html', {"words": words})
+    words1 = Dictionary.objects.order_by('word')[:50]
+    words2 = Dictionary.objects.order_by('word')[51:]
+    return render(request, 'main/dictionary.html', {"words1": words1, "words2": words2})
 
 
 def books(request):
