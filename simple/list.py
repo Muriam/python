@@ -9,4 +9,4 @@ for i in range(n):
 if arr2:                    # если список2 не пуст
     print('минимальный положительный элемент = ', min(arr2))
 else:
-    print('Empty')
+    print('список пуст')
