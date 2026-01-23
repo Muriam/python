@@ -13,6 +13,6 @@ while True:
         break
 
 idx_alex = names.index('Александр')
-idx_levon = names.index('Леон')
+idx_leon = names.index('Леон')
 
-print(idx_levon - idx_alex - 1)
+print(idx_leon - idx_alex - 1)
