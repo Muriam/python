@@ -15,6 +15,9 @@
 
 <div align="center">
   
-![Snake animation](https://github.com/Muriam/Muriam/blob/output/github-contribution-grid-snake.svg)
+![Python](https://img.shields.io/badge/-Python-3776AB?style=for-the-badge&logo=python&logoColor=white&logoWidth=30)
+![Django](https://img.shields.io/badge/-Django-092E20?style=for-the-badge&logo=django&logoColor=white)
+![DRF](https://img.shields.io/badge/-DRF-FF1709?style=for-the-badge&logo=django&logoColor=white)
+![Git](https://img.shields.io/badge/-Git-F05032?style=for-the-badge&logo=git&logoColor=white)
 
 </div>
