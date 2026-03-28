@@ -17,6 +17,12 @@
 
 <div align="center">
   
-<img src="https://media.giphy.com/media/vFKqnCdLPNOKc/giphy.gif" width="150">
+![Stars](https://capsule-render.vercel.app/api?type=waving&color=0:FFD700,100:9B59B6&height=100&section=header&text=🌟&fontSize=50&fontAlignY=35&animation=fadeIn)
+
+<h2>⭐ Муриам ⭐</h2>
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&duration=3000&pause=500&color=FFD700&center=true&width=400&lines=люблю+код;люблю+звёзды;люблю+⭐+тебя" />
+
+![Footer](https://capsule-render.vercel.app/api?type=waving&color=0:9B59B6,100:FFD700&height=80&section=footer)
 
 </div>
