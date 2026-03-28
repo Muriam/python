@@ -1,10 +1,3 @@
-<div align="center">
-  
-![Header](https://capsule-render.vercel.app/api?type=soft&color=gradient&height=120&section=header&text=💜&fontSize=60&fontAlignY=35)
-
-</div>
-
----
 
 <div align="center">
   
