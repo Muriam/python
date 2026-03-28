@@ -15,9 +15,6 @@
 
 <div align="center">
   
-![Python](https://img.shields.io/badge/-Python-3776AB?style=for-the-badge&logo=python&logoColor=white&logoWidth=30)
-![Django](https://img.shields.io/badge/-Django-092E20?style=for-the-badge&logo=django&logoColor=white)
-![DRF](https://img.shields.io/badge/-DRF-FF1709?style=for-the-badge&logo=django&logoColor=white)
-![Git](https://img.shields.io/badge/-Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=Muriam&show_icons=true&theme=radical&hide_border=true&bg_color=0D1117&title_color=9B59B6&icon_color=9B59B6&text_color=FFFFFF)](https://github.com/anuraghazra/github-readme-stats)
 
 </div>
